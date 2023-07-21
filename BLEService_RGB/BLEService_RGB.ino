@@ -13,9 +13,9 @@ void setup() {
   pinMode(LEDR, OUTPUT);
   pinMode(LEDG, OUTPUT);
   pinMode(LEDB, OUTPUT);
-  pinMode(LED_BUILTIN, OUTPUT);
   
-  digitalWrite(LED_BUILTIN, LOW);         // when the central disconnects, turn off the LED
+  
+          // when the central disconnects, turn off the LED
   digitalWrite(LEDR, HIGH);               //
   digitalWrite(LEDB, HIGH);                
 
@@ -54,7 +54,7 @@ void loop() {
     Serial.print("Connected to central: ");
     // print the central's MAC address:
     Serial.println(central.address());
-    digitalWrite(LED_BUILTIN, HIGH);            // turn on the LED to indicate the connection
+              // turn on the LED to indicate the connection
 
     // while the central is still connected to peripheral:
     while (central.connected()) {
@@ -93,9 +93,6 @@ void loop() {
     // when the central disconnects, print it out:
     Serial.print(F("Disconnected from central: "));
     Serial.println(central.address());
-    digitalWrite(LED_BUILTIN, LOW);         // when the central disconnects, turn off the LED
-    digitalWrite(LEDR, HIGH);          // will turn the LED off
-    digitalWrite(LEDG, HIGH);        // will turn the LED off
-    digitalWrite(LEDB, HIGH);         // will turn the LED off
+
   }
 }
