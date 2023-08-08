@@ -20,7 +20,7 @@ void setup() {
   }
 
   // set advertised local name and service UUID:
-  BLE.setLocalName("Ch Farruh");
+  BLE.setLocalName("IOT");
   BLE.setAdvertisedService(ledService);
 
   // add the characteristic to the service
@@ -55,13 +55,13 @@ void loop() {
       // use the value to control the LED:
       if (switchCharacteristic.written()) {
         switch (switchCharacteristic.value()) {   // any value other than 0
+          case 00:
+            Serial.println("Built LED on");
+            digitalWrite(13, LOW);         
+            break;
           case 01:
             Serial.println("Built LED on");
-            digitalWrite(13, HIGH);         // will turn the LED off
-            break;
-          case 02:
-            Serial.println("Built LED on");
-            digitalWrite(13, LOW);         // will turn the LED off
+            digitalWrite(13, HIGH);        
             break;
           default:
             break;
